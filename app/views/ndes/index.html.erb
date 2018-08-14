@@ -4,3 +4,32 @@
     <h3>Jolt yourself into the life you really want</h3>
   </div>
 </div>
+
+<div class="wrapper-gray">
+  <div class="container">
+    <h3>Choose your Near Death Experience</h3>
+    <div class="row">
+      <% @ndes.each do |nde| %>
+      <div class="col-xs-12 col-sm-4 col-lg-3">
+        <div class="card-nde">
+          <h4><%= nde.name %></h4>
+          <div class="card-nde-info">
+            <ul class="list-inline">
+              <li>
+                <%= nde.price %><i class="fas fa-euro-sign"></i>
+              </li>
+              <li>
+                <%= nde.participant_number %><i class="fas fa-user"></i>
+              </li>
+              <li>
+                <%= nde.drama %><i class="fas fa-skull"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
