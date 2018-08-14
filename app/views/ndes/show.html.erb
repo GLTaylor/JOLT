@@ -9,6 +9,7 @@
         <li> <%= @nde.price %> euros</li>
         <li> <%= @nde.location %> </li>
         <li> <%= @nde.city %> </li>
+        <%= link_to "Book", new_nde_booking_path(@nde.id), class:"btn btn-danger" %>
       </ul>
     </div>
   </div>
