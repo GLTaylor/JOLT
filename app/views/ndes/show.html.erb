@@ -3,19 +3,23 @@
     <h1> <%= @nde.name %> </h1>
   </div>
   <div class="card-price">
+    <div class="col-xs-12 col-sm-4">
     <h4 style= "text-align: center"> Details </h4>
-    <ul style="list-style-type: disc;">
-      <li> <%= @nde.price %> euros</li>
-      <li> <%= @nde.location %> </li>
-      <li> <%= @nde.city %> </li>
-    </ul>
+      <ul>
+        <li> <%= @nde.price %> euros</li>
+        <li> <%= @nde.location %> </li>
+        <li> <%= @nde.city %> </li>
+      </ul>
+    </div>
   </div>
 </div>
 
 <div class="card-body">
-  <div>
-    <h2> Experience: <%= @nde.name %> </h2>
-    <p> <%= @nde.description %> </p>
+  <div class="col-xs-12 col-sm-12 md-sm-12">
+    <div>
+      <h2> Experience: <%= @nde.name %> </h2>
+      <p> <%= @nde.description %> </p>
+    </div>
   </div>
 
   <div class="card-review">
