@@ -1,6 +1,6 @@
 class NdesController < ApplicationController
   def index
-    @nde = Nde.all
+    @ndes = Nde.all
   end
 
   def new

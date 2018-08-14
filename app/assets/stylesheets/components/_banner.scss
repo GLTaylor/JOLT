@@ -1,6 +1,6 @@
 .banner {
   background-image: asset-url('background');
-  height: 100vh;
+  height: calc(100vh - 70px);
   width: 100%;
   background-size: cover;
   background-position: center;
