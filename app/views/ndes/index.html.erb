@@ -5,14 +5,15 @@
   </div>
 </div>
 
-<div class="wrapper-gray">
+<div class="wrapper-white">
   <div class="container">
-    <h3>Choose your Near Death Experience</h3>
+    <h3 class="text-center">Choose your Near Death Experience</h3>
     <div class="row">
       <% @ndes.each do |nde| %>
       <div class="col-xs-12 col-sm-4 col-lg-3">
-        <div class="card-nde">
-          <h4><%= nde.name %></h4>
+        <%= link_to nde_path(nde) , class: "card-link" do %>
+        <div class="card-nde card-nde-background card-nde-filter">
+          <h4 class="card-title"><%= nde.name %></h4>
           <div class="card-nde-info">
             <ul class="list-inline">
               <li>
@@ -27,6 +28,7 @@
             </ul>
           </div>
         </div>
+        <% end %>
       </div>
 
       <% end %>
