@@ -1,14 +1,23 @@
-<div class="nde-show-banner">
-<h1> <%= @nde.name %> </h1>
-<%= cl_image_tag @nde.photo %>
+<div class="nde-banner" style="background-image: linear-gradient(-225deg, rgba(0,108,200,12.6) 0%, rgba(8,36,61,0.6) 41%), url(https://ohmy.disney.com/wp-content/uploads/2013/10/Belle-from-Beauty-and-the-Beast-Scary-Disney-Movie-Moment.jpg)">
+
+  <div class="nde-banner-content">
+    <h1> <%= @nde.name %> </h1>
+  </div>
 </div>
 
-<h2> Experience <%= @nde.name %> </h2>
-<img src= "http://images.gawker.com/wenr8ysmpnwc2ecep4gi/c_scale,fl_progressive,q_80,w_800.jpg" width: 600px
+<h2> Experience: <%= @nde.name %> </h2>
+<p> <%= @nde.description %>
+
 <h2> Reviews Below </h2>
+
 
 <div class="price-card">
   <%= @nde.price %>
   <%= @nde.location %>
   <%= @nde.city %>
 </div>
+
+
+
+
+
