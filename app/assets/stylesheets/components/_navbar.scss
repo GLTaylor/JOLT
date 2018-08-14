@@ -15,6 +15,31 @@
   height: 50px;
 }
 
+.navbar-wagon-brand:hover {
+  color : $red;
+}
+
+// App name
+.navbar-wagon .app-name {
+  font-family: "Chelsea Market", "cursive";
+  font-size: 30px;
+}
+
+// left navigation
+.navbar-wagon .left-navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar-wagon .left-navigation p {
+  margin: 0;
+}
+
+.navbar-wagon a:hover {
+  text-decoration: none;
+}
+
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
