@@ -6,6 +6,7 @@ class Booking < ApplicationRecord
   validates_associated :nde
   validates :date, presence: true
   validates :waiver_check, acceptance: true
-  validates :status, presence: true
+  validates :guests, presence: true
+  validates :status, presence: true, numericality: { only_integer: true }
 
 end
