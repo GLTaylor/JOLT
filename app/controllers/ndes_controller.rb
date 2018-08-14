@@ -4,11 +4,12 @@ class NdesController < ApplicationController
   end
 
   def show
+    @nde = Nde.find(params[:id])
   end
 
-  def create
-  end
+  # def create
+  # end
 
-  def new
-  end
+  # def new
+  # end
 end
