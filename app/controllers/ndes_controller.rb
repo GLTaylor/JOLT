@@ -12,8 +12,10 @@ class NdesController < ApplicationController
   end
 
   def create
+    set_user
     @nde = Nde.new(nde_params)
-    if @nde.save
+    @nde.user = @user
+    if @nde.save!
       redirect_to nde_path(@nde)
     else
       render 'new'
