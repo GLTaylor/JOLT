@@ -13,8 +13,9 @@
     <% if user_signed_in? %>
 
     <!-- Links when logged in -->
+    <%= link_to "Facilitate an Experience", new_nde_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Your Experiences", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Dashboard", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "NDE's", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
