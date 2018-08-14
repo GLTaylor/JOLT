@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :bookings
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :over_18, acceptance: { message: "You really need to be over 18 for this"}
+  validates :over_18, acceptance: true;
 end
