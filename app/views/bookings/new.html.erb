@@ -16,7 +16,7 @@
 
       <div class="col-xs-12 col-md-4 form-booking">
         <%= simple_form_for [@nde, @booking] do |f| %>
-        <%= f.input :date, start_year: Date.today.year , class: "date-inline", label: "When shall this expierence take place?"%>
+        <%= f.input :date, as: :string, input_html: { class: "datepicker" }, label: "When shall this expierence take place?"%>
         <%= f.input :guests, collection: 1..@nde.participant_number, label: "Number of participants to this adventure", error: "You need to specify how many people will come" %>
         <%= f.input :waiver_check, label: "I waive all rights to my life", error: "It needs to be ticked" %>
         <%= f.button :submit, "Book now!", class: "btn btn-danger text-center" %>
