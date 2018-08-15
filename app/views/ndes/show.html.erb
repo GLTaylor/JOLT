@@ -2,6 +2,18 @@
   <div class="nde-banner-content">
     <h1> <%= @nde.name %> </h1>
   </div>
+
+  <div class="card-price">
+    <div class="col-xs-12 col-sm-4">
+    <h4 style= "text-align: center"> Details </h4>
+      <ul>
+        <li> <%= @nde.price %> euros</li>
+        <li> <%= @nde.location %> </li>
+        <li> <%= @nde.city %> </li>
+        <%= link_to "Book", new_nde_booking_path(@nde), class:"btn btn-danger" %>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="card-body">
