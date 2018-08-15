@@ -8,22 +8,27 @@
   width: 100%;
   min-height: calc(100vh - 140px);
   padding-top: 30px;
+  background-color: #F4F4F4;
+
 }
+
 .card-price {
-  border-radius: 6px;
+  border-radius: 35px;
   box-shadow: 11px 9px 36px -6px rgba(112,112,112,1);
   display: inline-block;
   margin: 30px;
-  background-color: white;
-  position: absolute;
-  bottom: 4px;
-  right: 17px;
+  opacity: 0.85;
   color: #333333;
+  height: 280px;
+  margin-top: 60px;
+  width: 450px;
 }
+
 .card-price ul {
   text-align: left;
   width: 50vh;
 }
+
 
 .card-review {
   position: absolute;
@@ -47,6 +52,11 @@
 .card-nde h4 {
   color: white;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2)
+}
+
+
+.card-nde btn btn-danger {
+  text-align: center;
 }
 
 .card-link:hover {

@@ -28,8 +28,8 @@ User.create!(
     name: "Conversation With A Serial Killer In A High-level Security Prison",
     description: "This cannibalistic psychopath can derange your mind and make your commit suicide. Are you ready for this mental struggle that might push you to the brink of despair?",
     drama: 4.5,
-    city: "London",
-    location: "Classified Information - this secret location will be revealed once your payment has been made.",
+    city: "London, UK",
+    location: "Indoors",
     price: 10000,
     participant_number: 1,
     user: User.all.sample
@@ -40,10 +40,10 @@ User.create!(
 
   two = Nde.create!(
     name: "Playing Russian Roulette with ex-KGB agents",
-    description: "Make sure that you drink enough vodka before playing.",
+    description: "Set in an infamous Gulag camp, Vorkutlag is now run by some Russian mafias. Make sure that you drink enough vodka before playing.",
     drama: 3.8,
-    city: "Ванавара(Vanavara).A private village run by Russian mafias",
-    location: "Somewhere in Siberia. Used to be a gulag.",
+    city: "Воркута, Russia",
+    location: "Indoors",
     price: 1000,
     participant_number: 3,
     user: User.all.sample
@@ -57,7 +57,7 @@ User.create!(
     description: "Pretending to be an ISIS solider for a day before potential extraction by the CIA. Prerequisites: thick beard, plastic surgery, fluency in Arabic, life insurance, and memorization of every sentence from the Koran.",
     drama: 4.9,
     city: "Hajin, Syria",
-     location: "Classified Information - the location is subject to change depending on the political situation.",
+     location: "Outdoors",
      price: 250000,
      participant_number: 5,
      user: User.all.sample
@@ -71,7 +71,7 @@ User.create!(
      description: "Lions have killed more than 563 Tanzanians since 1990 and injured at least 308. Ready to escape lion hunt?",
      drama: 4.5,
      city: "Arusha,Tanzania",
-     location: "Somewhere in the safari",
+     location: "Outdoors",
      price: 8000,
      participant_number: 10,
      user: User.all.sample
@@ -85,7 +85,7 @@ User.create!(
     description: "The most frightening kayak trip of your life, if you survive.",
     drama: 3.2,
     city: " Colombo, Sri Lanka",
-    location: "Elephant Rock",
+    location: "Outdoors",
     price: 6500,
     participant_number: 22,
     user: User.all.sample

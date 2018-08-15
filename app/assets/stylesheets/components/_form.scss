@@ -45,9 +45,10 @@
     color: #FFFFFF;
     font-weight: lighter;
 
-
 }
-
 .file:hover{
-background-color: #9F4240;
+  background-color: #9F4240;
+}
+.page-content{
+  min-height: calc(100vh - 140px);
 }
