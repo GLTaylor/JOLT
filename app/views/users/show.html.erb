@@ -1,4 +1,5 @@
 <div class="card-body">
+  <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
       <h2> Welcome to your page,</h2>
@@ -17,14 +18,84 @@
         <%= cl_image_tag "https://res.cloudinary.com/dm8awkcp1/image/upload/v1534326229/avatar.png" %>
       <% end %>
     </div>
+  </div>
+        <% if @user == current_user %>
+  <!-- displaying for myself -->
+  <% if @user.ndes.count != 0 %>
+  <!-- Displaying my NDE's and bookings -->
     <div class="row">
-      <div class="col-xs-12 col-sm-12">
-        <h2> Your booked experiences </h2>
+      <h3>My nde's</h3>
+      <% @user.ndes.each do |nde| %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path nde.photo %>'); background-position: center;
+        background-size: cover;">
+        <h4 class="card-title"><%= nde.name %></h4>
+        <ol>
+          <% nde.bookings.each do |booking| %>
+          <li>
+            <div class="nde-booking">
+              <p><%= booking.date %> <%= booking.user.email %></p>
+              <p>Status: <%= booking.status %>
+                <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger", method: :patch } %>
+                <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success", method: :patch  %>
+                </p>
+            </div>
+          </li>
+          <% end %>
+        </ol>
+        <div class="card-nde-info">
+          <ul class="list-inline">
+            <li>
+              <%= nde.price %><i class="fas fa-euro-sign"></i>
+            </li>
+            <li>
+              <%= nde.participant_number %><i class="fas fa-user"></i>
+            </li>
+            <li>
+              <%= nde.drama %><i class="fas fa-skull"></i>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+      <% end %>
+</div>
+  <% end %>
+
+<!-- Display my bookings and there status -->
+<div class="row">
+  <h3>My booking's</h3>
+  <% @user.bookings.each do |booking| %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path booking.nde.photo %>'); background-position: center;
+        background-size: cover;">
+        <h4 class="card-title"><%= booking.nde.name %></h4>
+        <div class="card-nde-info">
+          <ul class="list-inline">
+            <li>
+              <%= booking.nde.price %><i class="fas fa-euro-sign"></i>
+            </li>
+            <li>
+              <%= booking.nde.participant_number %><i class="fas fa-user"></i>
+            </li>
+            <li>
+              <%= booking.nde.drama %><i class="fas fa-skull"></i>
+            </li>
+          </ul>
+          <p>Status : <%= booking.status %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% else %>
+    <!-- displaying for public only my Nde's -->
+    <div class="row">
+
+    </div>
+
+<% end %>
     </div>
   </div>
-</div>
-
 
 

@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_nde
+  before_action :set_nde, only: [:new, :create]
+  before_action :set_booking, only: [:deny, :accept]
 
   def new
     @booking = Booking.new
@@ -18,10 +19,28 @@ class BookingsController < ApplicationController
     end
   end
 
+  def deny
+    @booking.status = "Denied"
+    @booking.save
+    @user = current_user
+    redirect_to user_path(@user)
+  end
+
+  def accept
+    @booking.status = "Accept"
+    @booking.save
+    @user = current_user
+    redirect_to user_path(@user)
+  end
+
   private
 
   def set_nde
     @nde = Nde.find(params[:nde_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def params_booking
