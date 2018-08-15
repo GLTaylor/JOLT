@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.status = "Accept"
+    @booking.status = "Accepted"
     @booking.save
     @user = current_user
     redirect_to user_path(@user)
