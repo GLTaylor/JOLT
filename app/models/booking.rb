@@ -7,6 +7,6 @@ class Booking < ApplicationRecord
   validates :date, presence: true
   validates :waiver_check, acceptance: true
   validates :guests, presence: true
-  validates :status, presence: true, numericality: { only_integer: true }
+  validates :status, presence: true
 
 end
