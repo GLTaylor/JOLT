@@ -1,4 +1,14 @@
 <%= @user.name %>
 <%= @user.email %>
 
-<%= link_to "current_user_show", current_user %>
+<div class="card-body">
+  <div class="col-xs-12 col-sm-12 md-sm-12">
+    <div>
+      <h2> Welcome to your page, <%= @user.email %> </h2>
+      <%= link_to "Edit your page", edit_user_path %>
+    </div>
+  </div>
+</div>
+
+
+
