@@ -1,0 +1,27 @@
+<div class="booking-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 booking-text">
+        <h1 class="title-booking">Details of your experience</h1>
+        <div class="booking-description card-booking">
+          <h3><%= @nde.name %></h3>
+          <p><%= @nde.description %></p>
+        </div>
+
+        <div class="booking-details card-booking">
+          <h3>Things to keep in mind</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, totam, ipsam. Deleniti sunt, earum voluptatum praesentium hic eum saepe nam qui voluptate ullam, laboriosam, ipsam ea quia quas consequatur provident!</p>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 form-booking">
+        <%= simple_form_for [@nde, @booking] do |f| %>
+        <%= f.input :date, start_year: Date.today.year , class: "date-inline", label: "When shall this expierence take place?"%>
+        <%= f.input :guests, collection: 1..@nde.participant_number, label: "Number of participants to this adventure", error: "You need to specify how many people will come" %>
+        <%= f.input :waiver_check, label: "I waive all rights to my life", error: "It needs to be ticked" %>
+        <%= f.button :submit, "Book now!", class: "btn btn-danger text-center" %>
+        <% end %>
+    </div>
+    </div>
+  </div>
+</div>
