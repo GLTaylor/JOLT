@@ -34,9 +34,11 @@
           <% nde.bookings.each do |booking| %>
           <li>
             <div class="nde-booking">
-              <p><%= booking.date %></p>
-              <p><%= booking.user.email %></p>
-              <p><%= booking.status %></p>
+              <p><%= booking.date %> <%= booking.user.email %></p>
+              <p>Status: <%= booking.status %>
+                <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger", method: :patch } %>
+                <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success", method: :patch  %>
+                </p>
             </div>
           </li>
           <% end %>
@@ -80,6 +82,7 @@
               <%= booking.nde.drama %><i class="fas fa-skull"></i>
             </li>
           </ul>
+          <p>Status : <%= booking.status %></p>
         </div>
       </div>
     </div>
