@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-before_action: set user_params
   def show
     @user = User.find(params[:id])
   end
@@ -9,6 +8,8 @@ before_action: set user_params
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
   end
 
   private
