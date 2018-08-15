@@ -52,8 +52,15 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">NDE's</a></li>
+        <li>
+          <%= link_to "Profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+        <li><%= link_to "Facilitate an Experience", new_nde_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Your Experiences", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Dashboard", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %></li>
+
+
       </ul>
     </div>
   </div>
