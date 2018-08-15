@@ -1,4 +1,4 @@
-<h1> Create a new Near Death Experience </h1>
+<!-- <h1> Create a new Near Death Experience </h1>
 <%= simple_form_for(@nde) do |f| %>
 <%= f.input :name %>
 <%= f.input :description %>
@@ -10,4 +10,27 @@
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
 <%= f.submit "Create" %>
-<% end %>
+<% end %> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="card-form row">
+        <h3> Change a Life: Nearly Kill Someone </h3>
+        <%= simple_form_for(@nde) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :city %>
+          <%= f.input :participant_number %>
+          <%= f.input :location %>
+          <%= f.input :drama %>
+          <%= f.input :price %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.submit "Add Experience" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

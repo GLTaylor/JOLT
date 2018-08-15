@@ -5,9 +5,8 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin: 30px;
   width: 100%;
-  height: 70vh;
+  min-height: calc(100vh - 140px);
   padding-top: 30px;
 }
 .card-price {
@@ -96,8 +95,18 @@
 }
 
 .card-nde .nde-booking {
-  color : white;
   display: flex;
+}
+
+.card-nde ol {
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  color: white;
+}
+
+.card-nde p {
+  margin-right: 8px;
 }
 
 .card-nde-booking {

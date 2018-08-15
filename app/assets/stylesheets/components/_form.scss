@@ -30,3 +30,24 @@
 .btn{
   margin-bottom: 5px;
 }
+
+.form-control-file {
+  visibility: hidden;
+  height: 0px;
+}
+
+.file{
+    background-color: #C34240;
+    width: 63px;
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-top: 2px;
+    color: #FFFFFF;
+    font-weight: lighter;
+
+
+}
+
+.file:hover{
+background-color: #9F4240;
+}
