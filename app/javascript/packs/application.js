@@ -1,4 +1,6 @@
 import "bootstrap";
-import { status } from './booking.js';
+import "../plugins/flatpickr";
+import "../pages/booking";
 
-status();
+
+
