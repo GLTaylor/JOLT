@@ -24,7 +24,7 @@
   <% if @user.ndes.count != 0 %>
   <!-- Displaying my NDE's and bookings -->
     <div class="row">
-      <h3>My nde's</h3>
+      <h3>Manage my experiences</h3>
       <% @user.ndes.each do |nde| %>
       <div class="col-xs-12 col-md-6">
         <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path nde.photo %>'); background-position: center;
@@ -64,7 +64,7 @@
 
 <!-- Display my bookings and there status -->
 <div class="row">
-  <h3>My booking's</h3>
+  <h3>My bookings</h3>
   <% @user.bookings.each do |booking| %>
       <div class="col-xs-12 col-md-6">
         <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path booking.nde.photo %>'); background-position: center;
@@ -82,7 +82,7 @@
               <%= booking.nde.drama %><i class="fas fa-skull"></i>
             </li>
           </ul>
-          <p>Status : <%= booking.status %></p>
+          <p class="booking-status">Status : <%= booking.status %></p>
         </div>
       </div>
     </div>
