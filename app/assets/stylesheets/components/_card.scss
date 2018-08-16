@@ -6,10 +6,8 @@
   justify-content: space-between;
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 140px);
   padding-top: 30px;
   background-color: #F4F4F4;
-
 }
 
 .card-price {
@@ -109,23 +107,24 @@
   border-radius: 3px;
 }
 
-.card-nde .nde-booking {
-  height: auto;
-}
-
-.card-nde ol {
-  position: absolute;
-  top: 90px;
-  left: 10px;
-  color: white;
-}
-
 .card-nde p {
   margin-right: 8px;
 }
 
-.card-nde-booking {
+.nde-card-manage {
   height: auto;
-  min-height: 300px;
-  padding-bottom: 10px;
+  background-color: #F4F4F4;
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 15px;
+}
+
+.nde-booking {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid 1px #C4C4C4;
+  padding: 10px 0;
+  align-items: center;
+  &:last-child {
+    padding-top: 10px;
+  }
 }

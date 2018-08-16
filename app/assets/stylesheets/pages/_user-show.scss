@@ -1,11 +1,15 @@
-.card-nde-info .deny {
+.deny {
   color : $red;
 }
 
-.card-nde-info .accept {
+.accept {
   color: #00BD96;
 }
 
-.card-nde-info .pending {
+.pending {
   color: #FF8500;
+}
+
+.user-page {
+  min-height: calc(100vh - 140px);
 }
