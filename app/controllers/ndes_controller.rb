@@ -9,6 +9,7 @@ class NdesController < ApplicationController
 
   def show
     @nde = Nde.find(params[:id])
+    @booking = Booking.new
   end
 
   def create

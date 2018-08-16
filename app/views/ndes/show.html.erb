@@ -1,31 +1,72 @@
-<div class="nde-banner" style="background-image: url(<%= cl_image_path @nde.photo %>)">
+<div class="nde-banner" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 12%,rgba(0,0,0,0.3) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path @nde.photo %>'); background-position: center;">
   <div class="nde-banner-content">
     <h1> <%= @nde.name %> </h1>
   </div>
 </div>
 
-<div class="card-body">
-  <div class="col-xs-12 col-sm-12 md-sm-12">
-    <div>
-      <h2> Experience: <%= @nde.name %> </h2>
-      <p> <%= @nde.description %> </p>
+<div class="nde-body">
+  <div class="wrapper-gray">
+  <div class="container">
+    <div class="row">
+        <h2 class="title-show">Details of this experience</h2>
+      <div class="col-xs-12 col-md-8">
+        <div class="booking-description card-booking">
+          <h3><%= @nde.name %></h3>
+          <div class="nde-description-info">
+            <ul class="list-inline">
+            <li>
+              <p><%= @nde.price %> <i class="fas fa-euro-sign"></i></p>
+            </li>
+            <li>
+              <p><%= @nde.participant_number %> <i class="fas fa-user"></i></p>
+            </li>
+            <li>
+              <p><%= @nde.drama %> <i class="fas fa-skull"></i></p>
+            </li>
+          </ul>
+          <p><i class="fas fa-map-marker-alt"></i> <%= @nde.city %></p>
+          </div>
+          <p><%= @nde.description %></p>
+        </div>
+
+        <div class="booking-details card-booking">
+          <h3>Things to keep in mind</h3>
+          <p>Please mentally prepare yourself for your brush with mortality. We are not held responsible for actual death, as each unique experience comes complete with escape options. </p>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4">
+        <div class="card-booking">
+          <h3>Book now !</h3>
+          <%= simple_form_for [@nde, @booking] do |f| %>
+          <%= f.input :date, as: :string, input_html: { class: "datepicker form-border" }, label: "When shall this expierence take place?"%>
+          <%= f.input :guests, collection: 1..@nde.participant_number, label: "Number of participants to this adventure", error: "You need to specify how many people will come", input_html: { class: "form-border" } %>
+          <%= f.input :comment, label: "Leave a comment to your experience provider", input_html: { class: "form-border", rows: 5 } %>
+          <%= f.input :waiver_check, label: "I waive all rights to my life", error: "It needs to be ticked" %>
+          <div class="booking-button">
+            <%= f.button :button, class: "btn btn-danger" do %> Time to go! <i class="fas fa-skull"></i>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+  </div>
+  <div class="wrapper-gray">
+    <div class="container">
+      <div class="row">
+        <h2 class="title-show">Reviews of this experience</h2>
+        <% if  %>
 
- <div class="card-price">
-    <h4 style= "text-align: center"> Details </h4>
-      <ul>
-        <li> <%= @nde.price %> euros</li>
-        <li> <%= @nde.location %> </li>
-        <li> <%= @nde.city %> </li>
-      </ul>
-      <div style= "text-align: center"><%= link_to "Book", new_nde_booking_path(@nde.id), class: "btn btn-danger" %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-  <div class="card-review">
-    <h2> Reviews Below </h2>
-    <p> There are no review for this experience yet! </p>
-  </div>
+
+
 </div>
 
 
