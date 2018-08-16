@@ -2,10 +2,14 @@ class NdesController < ApplicationController
 
 
   def index
-    if params[:query].present? && params[:drama].to_i == 0
+    if params[:query] == "" && params[:drama].to_i != 0
+      @ndes = Nde.search_by_drama(params[:drama].to_i)
+    elsif params[:query].present? && params[:drama].to_i == 0
       @ndes = Nde.search_by_query(params[:query])
     elsif params[:drama].to_i != 0
       @ndes = Nde.search_by_query(params[:query]).search_by_drama(params[:drama].to_i)
+    elsif
+      params[:drama] !=0 && p
     else
       @ndes = Nde.all
     end
