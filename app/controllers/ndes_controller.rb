@@ -1,7 +1,10 @@
 class NdesController < ApplicationController
+
+
   def index
-    if params[:query].present?
-      @ndes = Nde.where(name: params[:query])
+    if
+    elsif params[:query].present?
+      @ndes = Nde.search_by_query(params[:query])
     else
       @ndes = Nde.all
     end
@@ -37,3 +40,11 @@ class NdesController < ApplicationController
     params.require(:nde).permit(:name, :description, :city, :participant_number, :location, :drama, :price, :photo)
   end
 end
+
+# def index
+#     if params[:query].present?
+#       @ndes = Nde.where("name ILIKE ? AND drama = ?", params[:query], params[:drama])
+#     else
+#       @ndes = Nde.all
+#     end
+#   end
