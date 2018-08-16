@@ -1,6 +1,10 @@
 class NdesController < ApplicationController
   def index
-    @ndes = Nde.all
+    if params[:query].present?
+      @ndes = Nde.where(name: params[:query])
+    else
+      @ndes = Nde.all
+    end
   end
 
   def new
