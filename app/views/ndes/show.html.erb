@@ -24,7 +24,21 @@
 
   <div class="card-review">
     <h2> Reviews Below </h2>
-    <p> There are no review for this experience yet! </p>
+      <% if @nde.reviews.present? %>
+        <% @nde.reviews.each do |review| %>
+        <h4> <%= review.title %> </h4> <br>
+        <p> <%= review.body %> -- <em>
+          <% if review.user.name.present? %>
+            <%= review.user.name %>
+          <% else %>
+            <%= review.user.email %>
+          <% end %>
+         </em> </p>
+         <% end %>
+      <% else %>
+        <p> No review for this experience yet </p>
+      <% end %>
+
   </div>
 </div>
 
