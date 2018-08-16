@@ -1,101 +1,153 @@
-<div class="card-body">
-  <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
-      <h2> Welcome to your page,</h2>
-      <% if @user.name.present? %>
-        <h2> <%= @user.name %> </h2>
-      <% else %>
-        <h2> <%= @user.email %> </h2>
-      <% end %>
-      <%= link_to "Edit your page", edit_user_path %>
+<div class="user-page">
+  <div class="card-body">
+    <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <h2> Welcome to your page,</h2>
+        <% if @user.name.present? %>
+          <h2> <%= @user.name %> </h2>
+        <% else %>
+          <h2> <%= @user.email %> </h2>
+        <% end %>
+        <%= link_to "Edit your page", edit_user_path %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <h2> Here's how you appear to others:</h2>
+        <% if @user.photo.present? %>
+         <%=cl_image_tag @user.photo, height: 200 %>
+        <% else %>
+          <%= cl_image_tag "https://res.cloudinary.com/dm8awkcp1/image/upload/v1534326229/avatar.png" %>
+        <% end %>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6">
-      <h2> Here's how you appear to others:</h2>
-      <% if @user.photo.present? %>
-       <%=cl_image_tag @user.photo, height: 200 %>
-      <% else %>
-        <%= cl_image_tag "https://res.cloudinary.com/dm8awkcp1/image/upload/v1534326229/avatar.png" %>
-      <% end %>
     </div>
   </div>
         <% if @user == current_user %>
   <!-- displaying for myself -->
   <% if @user.ndes.count != 0 %>
   <!-- Displaying my NDE's and bookings -->
+  <div class="wrapper-white">
+    <div class="container">
     <div class="row">
       <h3>Manage my experiences</h3>
       <% @user.ndes.each do |nde| %>
-      <div class="col-xs-12 col-md-6">
-        <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path nde.photo %>'); background-position: center;
-        background-size: cover;">
-        <h4 class="card-title"><%= nde.name %></h4>
-        <ol>
-          <% nde.bookings.each do |booking| %>
-          <li>
-            <div class="nde-booking">
-              <p><%= booking.date %> <%= booking.user.email %></p>
-              <p>Status: <%= booking.status %>
-                <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger", method: :patch } %>
-                <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success", method: :patch  %>
-                </p>
+        <% if nde.bookings.present? %>
+          <div class="col-xs-12">
+            <div class="nde-card-manage">
+              <h4><%= nde.name %></h4>
+            <ul class="list-unstyled">
+              <% nde.bookings.each do |booking| %>
+              <li class="nde-booking">
+                  <div class="nde-booking-text">
+                  <p><strong>Requested date:</strong> <%= booking.date.strftime('%b %d, %Y') %></p>
+                  <!-- displating name or email if not existant -->
+                  <% if booking.user.name.present? %>
+                    <p><strong>By:</strong> <%= booking.user.name %> </p>
+                  <% else %>
+                    <p><strong>By:</strong> <%= booking.user.email %> </p>
+                  <% end %>
+                  <p>Current status: <strong class="booking-status"><%= booking.status %></strong></p>
+                  </div>
+                  <div class="booking-comment">
+                    <% if booking.comment.present? %>
+                      <strong>Comment: </strong>
+                      <br>
+                    <em><%= booking.comment %></em>
+                    <% end %>
+                  </div>
+                  <div class="nde-booking-buttons">
+                    <div class="button-container">
+                      <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success booking-button", method: :patch  %>
+                    </div>
+                    <div class="button-container">
+                      <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger booking-button", method: :patch } %>
+                    </div>
+                  </div>
+              </li>
+              <% end %>
+            </ul>
             </div>
-          </li>
-          <% end %>
-        </ol>
-        <div class="card-nde-info">
-          <ul class="list-inline">
-            <li>
-              <%= nde.price %><i class="fas fa-euro-sign"></i>
-            </li>
-            <li>
-              <%= nde.participant_number %><i class="fas fa-user"></i>
-            </li>
-            <li>
-              <%= nde.drama %><i class="fas fa-skull"></i>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+          </div>
+        <% else %>
+          <div class="col-xs-12">
+            <div class="nde-card-manage">
+              <h4><%= nde.name %></h4>
+              <em>There are currently no booking requests for this experience</em>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-</div>
+
+    </div>
+    </div>
+  </div>
   <% end %>
 
 <!-- Display my bookings and there status -->
-<div class="row">
-  <h3>My bookings</h3>
-  <% @user.bookings.each do |booking| %>
-      <div class="col-xs-12 col-md-6">
-        <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path booking.nde.photo %>'); background-position: center;
-        background-size: cover;">
-        <h4 class="card-title"><%= booking.nde.name %></h4>
-        <div class="card-nde-info">
-          <ul class="list-inline">
-            <li>
-              <%= booking.nde.price %><i class="fas fa-euro-sign"></i>
-            </li>
-            <li>
-              <%= booking.nde.participant_number %><i class="fas fa-user"></i>
-            </li>
-            <li>
-              <%= booking.nde.drama %><i class="fas fa-skull"></i>
-            </li>
-          </ul>
-          <p class="booking-status">Status : <%= booking.status %></p>
+<div class="wrapper-white">
+  <div class="container">
+    <div class="row">
+      <h3>My bookings</h3>
+      <% @user.bookings.each do |booking| %>
+          <div class="col-xs-12 col-md-6">
+            <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path booking.nde.photo %>'); background-position: center;
+            background-size: cover;">
+            <h4 class="card-title"><%= booking.nde.name %></h4>
+            <div class="card-nde-info">
+              <ul class="list-inline">
+                <li>
+                  <%= booking.nde.price %><i class="fas fa-euro-sign"></i>
+                </li>
+                <li>
+                  <%= booking.nde.participant_number %><i class="fas fa-user"></i>
+                </li>
+                <li>
+                  <%= booking.nde.drama %><i class="fas fa-skull"></i>
+                </li>
+              </ul>
+              <p class="booking-status">Status : <%= booking.status %></p>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
 <% else %>
     <!-- displaying for public only my Nde's -->
+  <div class="wrapper-white">
+    <div class="container">
     <div class="row">
-
+        <h3><%= @user.name %>'s exepiences</h3>
+        <% @user.ndes.each do |nde| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= link_to nde_path(nde) , class: "card-link" do %>
+          <div class="card-nde card-nde-background card-nde-booking" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 12%,rgba(0,0,0,0.4) 36%,rgba(0,0,0,0.1) 58%,rgba(0,0,0,0) 100%), url('<%= cl_image_path nde.photo %>'); background-position: center;
+          background-size: cover;">
+          <h4 class="card-title"><%= nde.name %></h4>
+            <div class="card-nde-info">
+              <ul class="list-inline">
+                <li>
+                  <%= nde.price %><i class="fas fa-euro-sign"></i>
+                </li>
+                <li>
+                  <%= nde.participant_number %><i class="fas fa-user"></i>
+                </li>
+                <li>
+                  <%= nde.drama %><i class="fas fa-skull"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     </div>
 
 <% end %>
-    </div>
+
   </div>
 
 
