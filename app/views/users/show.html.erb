@@ -48,6 +48,13 @@
                   <% end %>
                   <p>Current status: <strong class="booking-status"><%= booking.status %></strong></p>
                   </div>
+                  <div class="booking-comment">
+                    <% if booking.comment.present? %>
+                      <strong>Comment: </strong>
+                      <br>
+                    <em><%= booking.comment %></em>
+                    <% end %>
+                  </div>
                   <div class="nde-booking-buttons">
                     <div class="button-container">
                       <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success booking-button", method: :patch  %>
