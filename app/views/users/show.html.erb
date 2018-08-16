@@ -57,10 +57,10 @@
                   </div>
                   <div class="nde-booking-buttons">
                     <div class="button-container">
-                      <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success booking-button", method: :patch  %>
+                      <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success status-button", method: :patch  %>
                     </div>
                     <div class="button-container">
-                      <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger booking-button", method: :patch } %>
+                      <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger status-button", method: :patch } %>
                     </div>
                   </div>
               </li>
