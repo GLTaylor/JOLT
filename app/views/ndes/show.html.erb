@@ -20,27 +20,38 @@
         <li> <%= @nde.city %> </li>
       </ul>
       <div style= "text-align: center"><%= link_to "Book", new_nde_booking_path(@nde.id), class: "btn btn-danger" %></div>
-</div>
+  </div>
 
-  <div class="card-review">
-    <h2> Reviews Below </h2>
+</div>
+  <div class="card-reviews">
+    <h3> Reviews Below </h3>
+    <div class="card-review">
       <% if @nde.reviews.present? %>
         <% @nde.reviews.each do |review| %>
-        <h4> <%= review.title %> </h4> <br>
-        <p> <%= review.body %> -- <em>
-          <% if review.user.name.present? %>
-            <%= review.user.name %>
-          <% else %>
-            <%= review.user.email %>
-          <% end %>
-         </em> </p>
-         <% end %>
+          <h4> <%= review.title %> </h4> <br>
+          <p>
+            <%= review.body %> --
+            <em>
+              <% if review.user.name.present? %>
+                <%= review.user.name %>
+              <% else %>
+                <%= review.user.email %>
+              <% end %>
+            </em>
+          </p>
+          <div class="card-review-rating">
+            <% review.rating.times do %>
+              <i class="fas fa-skull skull-red"></i>
+            <% end %>
+          </div>
+        <% end %>
+
       <% else %>
         <p> No review for this experience yet </p>
       <% end %>
-
+    </div>
   </div>
-</div>
+
 
 
 

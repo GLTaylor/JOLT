@@ -28,11 +28,26 @@
 }
 
 
-.card-review {
-  position: absolute;
-  bottom: -15px;
-  left: 10px;
+.card-reviews {
+  padding: 9px;
+
+
 }
+.card-review {
+  border: 1px solid grey;
+  padding: 5px;
+  margin-top: 10px;
+  position: relative;
+  width: 70%;
+  border-radius: 5px;
+}
+
+.card-review-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 
 .card-nde {
   height: 200px;
