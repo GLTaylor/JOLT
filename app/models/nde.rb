@@ -13,5 +13,6 @@ class Nde < ApplicationRecord
   validates :drama, inclusion: { in: [1, 2, 3, 4, 5] }
   validates :price, presence: true, numericality: {only_integer: true}
   pg_search_scope :search_by_query, :against => [:name, :description, :city, :location]
+  pg_search_scope :search_by_drama, :against => [:drama]
 
 end
