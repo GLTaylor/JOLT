@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 2018_08_16_102307) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["user_id"], name: "index_ndes_on_user_id"
   end
 
