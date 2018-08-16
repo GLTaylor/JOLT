@@ -105,7 +105,11 @@
                   <%= booking.nde.drama %><i class="fas fa-skull"></i>
                 </li>
               </ul>
-              <p class="booking-status">Status : <%= booking.status %></p>
+              <% if booking.date < Date.today %>
+                <p class="booking-status"> <%= link_to "Add Review", new_nde_review_path(booking.nde_id) %> </p>
+              <% else %>
+                <p class="booking-status">Status : <%= booking.status %></p>
+              <% end %>
             </div>
           </div>
         </div>
