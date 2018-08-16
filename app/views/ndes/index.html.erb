@@ -8,6 +8,13 @@
       class: "form-control",
       placeholder: "Find your near end"
     %>
+    <%= range_field_tag :drama,
+    params[:drama],
+    in: 0..5,
+    step: 1,
+    value: 0,
+    class: "form-control"
+      %>
     <% end %>
   </div>
 </div>
