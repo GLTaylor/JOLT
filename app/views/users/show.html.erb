@@ -3,13 +3,14 @@
     <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <h2> Welcome to your page,</h2>
         <% if @user.name.present? %>
-          <h2> <%= @user.name %> </h2>
+          <h2> Welcome to your page, <%= @user.name %> </h2>
         <% else %>
-          <h2> <%= @user.email %> </h2>
+          <h2> Welcome to your page, <%= @user.email %> </h2>
         <% end %>
-        <%= link_to "Edit your page", edit_user_path %>
+        <h2>Description:</h2>
+        <p> <%= @user.description %> </p>
+        <%= link_to "Edit your page", edit_user_path, class: "btn btn-primary" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
         <h2> Here's how you appear to others:</h2>
