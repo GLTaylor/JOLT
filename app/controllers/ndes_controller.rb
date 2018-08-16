@@ -1,6 +1,18 @@
 class NdesController < ApplicationController
+
+
   def index
-    @ndes = Nde.all
+    if params[:query] == "" && params[:drama].to_i != 0
+      @ndes = Nde.search_by_drama(params[:drama].to_i)
+    elsif params[:query].present? && params[:drama].to_i == 0
+      @ndes = Nde.search_by_query(params[:query])
+    elsif params[:drama].to_i != 0
+      @ndes = Nde.search_by_query(params[:query]).search_by_drama(params[:drama].to_i)
+    elsif
+      params[:drama] !=0 && p
+    else
+      @ndes = Nde.all
+    end
   end
 
   def new
@@ -34,3 +46,11 @@ class NdesController < ApplicationController
     params.require(:nde).permit(:name, :description, :city, :participant_number, :location, :drama, :price, :photo)
   end
 end
+
+# def index
+#     if params[:query].present?
+#       @ndes = Nde.where("name ILIKE ? AND drama = ?", params[:query], params[:drama])
+#     else
+#       @ndes = Nde.all
+#     end
+#   end
