@@ -26,3 +26,25 @@
   line-height: 1.1;
   // font-family: "Chelsea Market", "cursive"
 }
+
+.user-card {
+  margin-left:30px;
+  margin-top: -15px;
+}
+
+.user-picture {
+  margin-left: 80px;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+
+.avatar-circle {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
