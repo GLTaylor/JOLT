@@ -1,18 +1,20 @@
 class ReviewsController < ApplicationController
-  before_action :set_nde, only: [:new, :create]
-
-  def new
-    @review = Review.new
-  end
+  before_action :set_nde, only: [:create]
 
   def create
     @review = Review.new(params_review)
     @review.nde = @nde
     @review.user = current_user
     if @review.save
-      redirect_to nde_path(@nde)
+      respond_to do |format|
+        format.html { redirect_to nde_path(@nde) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'ndes/show' }
+        format.js
+      end
     end
   end
 
