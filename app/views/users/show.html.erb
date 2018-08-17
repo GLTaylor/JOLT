@@ -57,7 +57,7 @@
                   <% else %>
                     <p><strong>By:</strong> <%= booking.user.email %> </p>
                   <% end %>
-                  <p>Current status: <strong class="booking-status"><%= booking.status %></strong></p>
+                  <p>Current status: <strong class="booking-status" data-booking-id="<%= booking.id %>"><%= booking.status %></strong></p>
                   </div>
                   <div class="booking-comment">
                     <% if booking.comment.present? %>
@@ -68,10 +68,10 @@
                   </div>
                   <div class="nde-booking-buttons">
                     <div class="button-container">
-                      <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success status-button", method: :patch  %>
+                      <%= link_to "Accept request", booking_accept_path(booking), class: "btn btn-success status-button", method: :patch, remote: true  %>
                     </div>
                     <div class="button-container">
-                      <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger status-button", method: :patch } %>
+                      <%= link_to "Deny request", booking_deny_path(booking), { class: "btn btn-danger status-button", method: :patch , remote: true } %>
                     </div>
                   </div>
               </li>
