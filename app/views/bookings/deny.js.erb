@@ -1,0 +1,37 @@
+console.log(document.querySelector("[data-booking-id='<%= @booking.id %>']"));
+
+function updateStatus() {
+  const status = document.querySelector("[data-booking-id='<%= @booking.id %>']");
+  status.innerHTML = "<%= @booking.status %>"
+};
+
+function updateStatusColor() {
+  var bookingParagraph = document.querySelectorAll('.booking-status');
+  bookingParagraph.forEach((p) => {
+    var pContent = p.innerHTML
+    if (pContent.includes("Denied")) {
+      p.classList.add("deny")
+      console.log(p.classList['value']);
+      if (p.classList['value'].includes("accept")) {
+        p.classList.remove("accept");
+      } else if (p.classList['value'].includes("pending")) {
+        p.classList.remove("pending");
+      }
+    }
+    else if (pContent.includes("Accepted")) {
+      p.classList.add("accept")
+      if (p.classList['value'].includes("deny")) {
+        p.classList.remove("deny");
+      } else if (p.classList['value'].includes("pending")) {
+        p.classList.remove("pending");
+      }
+    }
+    else {
+      p.classList.add("pending")
+    }
+  })
+};
+
+updateStatus();
+
+updateStatusColor();

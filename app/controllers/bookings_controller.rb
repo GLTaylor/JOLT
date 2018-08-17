@@ -21,16 +21,34 @@ class BookingsController < ApplicationController
 
   def deny
     @booking.status = "Denied"
-    @booking.save
     @user = current_user
-    redirect_to user_path(@user)
+    if @booking.save
+      respond_to do |format|
+        format.html { redirect_to user_path(@user) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'users/show' }
+        format.js
+      end
+    end
   end
 
   def accept
     @booking.status = "Accepted"
-    @booking.save
-    @user = current_user
-    redirect_to user_path(@user)
+     @user = current_user
+    if @booking.save
+      respond_to do |format|
+        format.html { redirect_to user_path(@user) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'users/show' }
+        format.js
+      end
+    end
   end
 
   private
