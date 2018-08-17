@@ -9,3 +9,10 @@
   margin: 30px 0px;
   padding: 20px 0;
 }
+
+.wrapper-black {
+background: -webkit-linear-gradient(left, rgba(3,1,2,1) 0%, rgba(12,3,0,1) 54%, rgba(8,3,2,1) 80%, rgba(3,2,0,1) 100%);
+background: -o-linear-gradient(left, rgba(3,1,2,1) 0%, rgba(12,3,0,1) 54%, rgba(8,3,2,1) 80%, rgba(3,2,0,1) 100%);
+background: linear-gradient(to right, rgba(3,1,2,1) 0%, rgba(12,3,0,1) 54%, rgba(8,3,2,1) 80%, rgba(3,2,0,1) 100%);
+padding: 20px 0;
+}
