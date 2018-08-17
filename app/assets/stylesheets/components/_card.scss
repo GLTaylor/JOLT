@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   padding-top: 30px;
-  background-color: #F4F4F4;
+
 }
 
 .card-price {
@@ -34,12 +34,12 @@
 
 }
 .card-review {
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
   padding: 5px;
   margin-top: 10px;
   position: relative;
   width: 70%;
-  border-radius: 5px;
+  background-color: #dddddd;
 }
 .card-review h4 {
   font-weight: bold;
@@ -51,7 +51,9 @@
   right: 10px;
 }
 
-
+.review-form-card {
+  width: 80%;
+}
 .card-nde {
   height: 200px;
   position: relative;
