@@ -22,6 +22,7 @@ class NdesController < ApplicationController
   def show
     @nde = Nde.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
   end
 
   def create

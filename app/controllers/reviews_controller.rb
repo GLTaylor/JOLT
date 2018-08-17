@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :set_nde, only: [:new, :create]
+  before_action :set_nde, only: [:create]
 
-  def new
-    @review = Review.new
-  end
+  # def new
+  #   @review = Review.new
+  # end
 
   def create
     @review = Review.new(params_review)
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to nde_path(@nde)
     else
-      render :new
+      render 'ndes/show'
     end
   end
 
