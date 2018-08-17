@@ -1,34 +1,38 @@
 <div class="user-page">
-  <div class="card-body">
+  <div class="wrapper-gray">
     <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class = "user-card">
+    <div class="row card-body">
+       <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class = "user-picture">
+        <% if @user.photo.present? %>
+        <%=cl_image_tag @user.photo, height: 335, width: 335, crop: :fill, gravity: :face, :class => "avatar-circle" %>
+        <% else %>
+          <%= cl_image_tag "https://res.cloudinary.com/dm8awkcp1/image/upload/v1534326229/avatar.png", :class => "avatar-circle-user"%>
+        <% end %>
+      </div>
+    </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 user-descriptions">
+        <div class = "card-booking user-welcome-card">
         <% if @user.name.present? %>
           <h2> Welcome to your page, <%= @user.name %> </h2>
         <% else %>
           <h2> Welcome to your page, <%= @user.email %> </h2>
         <% end %>
+      </div>
+
+        <div class = "card-booking user-details">
         <h2>Description:</h2>
         <p> <%= @user.description %> </p>
+        <h2>Current location:</h2>
+        <p> <%= @user.location %> </p>
         <% if @user == current_user %>
         <%= link_to "Edit your page", edit_user_path, class: "btn btn-primary" %>
         <% end %>
       </div>
-    </div>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class = "user-picture">
-        <h2> Here's how you appear to others:</h2>
-        <% if @user.photo.present? %>
-        <%=cl_image_tag @user.photo, height: 200 %>
-        <% else %>
-          <%= cl_image_tag "https://res.cloudinary.com/dm8awkcp1/image/upload/v1534326229/avatar.png", :class => "avatar-circle" %>
-        <% end %>
       </div>
     </div>
     </div>
     </div>
-  </div>
         <% if @user == current_user %>
   <!-- displaying for myself -->
   <% if @user.ndes.count != 0 %>
@@ -160,5 +164,5 @@
 <% end %>
 
   </div>
-
+</div>
 
