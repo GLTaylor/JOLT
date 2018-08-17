@@ -1,0 +1,17 @@
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="card-form row">
+          <h3> Write a Review for <%= @nde.name %> </h3>
+          <%= simple_form_for [@nde, @review] do |f| %>
+            <%= f.input :title %>
+            <%= f.input :body %>
+            <%= f.input :rating %>
+            <%= f.submit "Add Your Review" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,16 +5,16 @@
         <div class="card-form row">
           <h3> Change a Life: Nearly Kill Someone </h3>
           <%= simple_form_for(@nde) do |f| %>
-            <%= f.input :name %>
-            <%= f.input :description %>
-            <%= f.input :city %>
-            <%= f.input :participant_number %>
-            <%= f.input :location %>
-            <%= f.input :drama %>
-            <%= f.input :price %>
+            <%= f.input :name, placeholder: 'What is your name?'%>
+            <%= f.input :description, placeholder: 'Take time to give a thoughtful description of how you plan to almost kill your joltee(s)' %>
+            <%= f.input :city, placeholder: 'In which city can you provide this jolt?' %>
+            <%= f.input :participant_number, placeholder: 'How many people can you jolt?' %>
+            <%= f.input :location, placeholder: 'Indoors or Outdoors?'%>
+            <%= f.input :drama, placeholder: 'How dramatic on a scale of 1-5?' %>
+            <%= f.input :price, placeholder: 'How much will this cost? €' %>
             <%= f.input :photo %>
             <%= f.input :photo_cache, as: :hidden %>
-            <%= f.submit "Add Experience" %>
+            <%= f.submit "Create Jolt" %>
           <% end %>
         </div>
       </div>
