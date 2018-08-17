@@ -23,6 +23,7 @@ class NdesController < ApplicationController
     @nde = Nde.find(params[:id])
     @booking = Booking.new
     @review = Review.new
+    @reviews = @nde.reviews.order(created_at: :desc)
   end
 
   def create
