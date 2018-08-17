@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :ndes, only: [:show, :new, :create] do
     resources :bookings, only: [:new, :create]
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
 
   patch "bookings/:id/deny", to: "bookings#deny", as: :booking_deny
