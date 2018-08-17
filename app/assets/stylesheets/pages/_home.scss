@@ -4,3 +4,40 @@
   font-size: 30px;
   margin-top: 15px;
 }
+
+.drama-text {
+  color : #727272;
+  text-shadow: none;
+  margin: 0 0 10px 0;
+}
+
+.search-input:focus {
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+
+.search-input {
+  color: $red;
+}
+
+.search-form {
+  background-color: #F4F4F4;
+}
+
+.search-and-slide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.drama-search {
+  margin : 5px 20px;
+}
+
+#search-form {
+  position: absolute;
+  bottom: -30px;
+  width: auto;
+  padding: 10px;
+  background-color: #FFFFFF;
+}

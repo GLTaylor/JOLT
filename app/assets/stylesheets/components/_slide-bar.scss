@@ -1,0 +1,35 @@
+.drama-range {
+  width: 200PX;
+  margin: 5px;
+}
+
+#drama {
+  appearance: none;
+  width: 100%;
+  background: #C4C4C4;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  height: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+#drama:hover {
+  opacity: 1;
+}
+
+#drama::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: asset-url('skull-solid.svg');
+}
+
+#drama:focus,
+#drama:active,
+#drama:focus:active {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}

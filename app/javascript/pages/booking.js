@@ -1,8 +1,7 @@
-
 const status = () => {
-  const bookingParagraph = document.querySelectorAll('.booking-status');
+  var bookingParagraph = document.querySelectorAll('.booking-status');
   bookingParagraph.forEach((p) => {
-    const pContent = p.innerHTML
+    var pContent = p.innerHTML
     if (pContent.includes("Denied")) {
       p.classList.add("deny")
     }
@@ -16,3 +15,4 @@ const status = () => {
 };
 
 status();
+
