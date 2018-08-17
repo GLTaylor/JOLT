@@ -117,7 +117,7 @@
                 </li>
               </ul>
               <% if booking.date < Date.today %>
-                <p class="booking-status"> <%= link_to "Add Review", new_nde_review_path(booking.nde_id) %> </p>
+                <p class="booking-status"> <%= link_to "Add Review", nde_path(booking.nde_id, anchor: "review-form-card") %> </p>
               <% else %>
                 <p class="booking-status">Status : <%= booking.status %></p>
               <% end %>
